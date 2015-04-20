@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>Celtra Circular Slider</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"> <!-- , user-scalable=no, target-densitydpi=medium-dpi -->
+		<meta http-equiv="cleartype" content="on">
+		
+		<meta name="HandheldFriendly" content="true" />
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="keywords" content="" /> 
+		<meta name="description" content="" />
+	</head>
+
+	<body>
+
+		<div id="sliderWrapper" class="circularSlider"></div>
+		<div id="sliderWrapper2" class="circularSlider"></div>
+
+
+
+	<link href="styles/style.css" rel="stylesheet">
+
+	<script src="javascripts/main.js" type="text/javascript" charset="utf-8" async defer></script>
+
+	<script type="text/javascript" charset="utf-8">
+		
+
+		document.onreadystatechange = function ()
+		{
+			if( document.readyState == 'complete' )
+			{
+				var intInitialRadius = 200;
+
+		    	var objSlider = new Celtra.CircularSlider( document.getElementById( 'sliderWrapper' ), { width: 440, height: 440 } );
+
+		    	objSlider.createDial(
+				{
+					color 	 : '#ee8318',
+					value 	 : 20,
+					step 	 : 1,
+					radius 	 : 50,
+					labelText : 'Transportation',
+					labelPrefix : '$ '
+				} ).createDial(
+				{
+					color 	 : '#7318ee',
+					value 	 : 300,
+					step 	 : 10,
+					radius 	 : 100,
+					labelText : 'Food',
+					labelSuffix : ' €'
+				} ).createDial(
+				{
+					color 	 : '#18beee',
+					value 	 : 5,
+					maxValue : 20,
+					step 	 : 5,
+					radius 	 : 150,
+					labelText : 'Korenje',
+					labelSuffix : ' dnevno'
+				} ).createDial(
+				{
+					color 	 : '#18ee27',
+					value 	 : 9000,
+					minValue : 0,
+					maxValue : 10000,
+					step 	 : 600,
+					radius 	 : 200,
+					labelText : 'Health care',
+					labelPrefix : '€ ',
+					labelSuffix : '',
+					labelFormat : function ( value )
+					{
+						return '€ ' + value.format( 2, 3, '.', ',' );
+					}
+				} ).create();
+
+				/*
+				var objSlider2 = new Celtra.CircularSlider( document.getElementById( 'sliderWrapper2' ), { width: 500, height: 500 } );
+
+		    	objSlider.createDial(
+				{
+					color 	 : '#18ee27',
+					value 	 : 9000,
+					minValue : 0,
+					maxValue : 10000,
+					step 	 : 600,
+					radius 	 : 300,
+					labelText : 'Health care',
+					labelPrefix : '€ ',
+					labelSuffix : '',
+					labelFormat : function ( value )
+					{
+						return '€ ' + value.format( 2, 3, '.', ',' );
+					}
+				} ).create();
+				*/
+			}
+		}
+
+
+		Number.prototype.format = function( n, x, s, c )
+		{
+		    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+		        num = this.toFixed(Math.max(0, ~~n));
+
+		    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+		};
+
+	</script>
+
+	</body>
+
+</html>
