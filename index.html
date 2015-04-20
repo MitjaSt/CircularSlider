@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>Celtra Circular Slider</title>
+		<title>Circular Slider</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"> <!-- , user-scalable=no, target-densitydpi=medium-dpi -->
 		<meta http-equiv="cleartype" content="on">
@@ -19,8 +19,12 @@
 	</head>
 
 	<body>
+		<div>
+			<h1>Koliko sanja/zelenjave poješ na dan?</h1>
+		</div>
 
 		<div id="sliderWrapper" class="circularSlider"></div>
+
 		<div id="sliderWrapper2" class="circularSlider"></div>
 
 
@@ -38,62 +42,85 @@
 			{
 				var intInitialRadius = 200;
 
-		    	var objSlider = new Celtra.CircularSlider( document.getElementById( 'sliderWrapper' ), { width: 440, height: 440 } );
+		    	var objSlider = new sl.CircularSlider( document.getElementById( 'sliderWrapper' ), { width: 650, height: 650 } );
 
 		    	objSlider.createDial(
 				{
-					color 	 : '#ee8318',
-					value 	 : 20,
+					color 	 : '#cd1304',
+					value 	 : 0,
+					maxValue : 20,
 					step 	 : 1,
 					radius 	 : 50,
-					labelText : 'Transportation',
-					labelPrefix : '$ '
+					labelText : 'Paradajzi'
 				} ).createDial(
 				{
-					color 	 : '#7318ee',
-					value 	 : 300,
-					step 	 : 10,
+					color 	 : '#fb7c1b',
+					value 	 : 0,
+					step 	 : 2,
+					minValue : 4,
+					maxValue : 50,
 					radius 	 : 100,
-					labelText : 'Food',
-					labelSuffix : ' €'
-				} ).createDial(
-				{
-					color 	 : '#18beee',
-					value 	 : 5,
-					maxValue : 20,
-					step 	 : 5,
-					radius 	 : 150,
 					labelText : 'Korenje',
-					labelSuffix : ' dnevno'
+					labelPrefix : 'cca. '
 				} ).createDial(
 				{
-					color 	 : '#18ee27',
-					value 	 : 9000,
-					minValue : 0,
-					maxValue : 10000,
-					step 	 : 600,
-					radius 	 : 200,
-					labelText : 'Health care',
-					labelPrefix : '€ ',
-					labelSuffix : '',
+					color 	 : '#fecf75',
+					value 	 : .8,
+					maxValue : 2,
+					step 	 : 0.2,
+					radius 	 : 150,
+					labelText : 'Krompir',
 					labelFormat : function ( value )
 					{
-						return '€ ' + value.format( 2, 3, '.', ',' );
+						return value.toFixed( 2 ) + ' kg';
 					}
+				} ).createDial(
+				{
+					color 	 : '#c41f19',
+					value 	 : 56,
+					minValue : 5,
+					maxValue : 100,
+					step 	 : 0.4,
+					radius 	 : 200,
+					labelText : 'Jagode',
+					labelFormat : function ( value )
+					{
+						return 'za ' + value.format( 2, 3, '.', ',' ) + ' €';
+					}
+				} ).createDial(
+				{
+					color 	 : '#36540e',
+					value 	 : 1,
+					minValue : 1,
+					maxValue : 5,
+					step 	 : 1,
+					radius 	 : 250,
+					labelText : 'Zelje'
+				} ).createDial(
+				{
+					color 	 : '#faef35',
+					value 	 : 9,
+					minValue : 3,
+					maxValue : 10,
+					step 	 : 1,
+					radius 	 : 300,
+					labelText : 'Limone'
 				} ).create();
 
-				/*
-				var objSlider2 = new Celtra.CircularSlider( document.getElementById( 'sliderWrapper2' ), { width: 500, height: 500 } );
+				
 
-		    	objSlider.createDial(
+				/* Test second instance */
+				var objSlider2 = new sl.CircularSlider( document.getElementById( 'sliderWrapper2' ), { width: 200, height: 200 } );
+
+		    	objSlider2.createDial(
 				{
 					color 	 : '#18ee27',
-					value 	 : 9000,
+					value 	 : 87,
 					minValue : 0,
-					maxValue : 10000,
-					step 	 : 600,
-					radius 	 : 300,
-					labelText : 'Health care',
+					maxValue : 2000,
+					step 	 : 15,
+					radius 	 : 60,
+					labelText : 'LoremIpsum',
 					labelPrefix : '€ ',
 					labelSuffix : '',
 					labelFormat : function ( value )
@@ -101,7 +128,8 @@
 						return '€ ' + value.format( 2, 3, '.', ',' );
 					}
 				} ).create();
-				*/
+
+				
 			}
 		}
 

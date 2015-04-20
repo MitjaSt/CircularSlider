@@ -26,6 +26,12 @@
     user-select: none;
   }
 
+  body div:first-child
+  {
+    width: 1000px;
+    text-align: center;
+  }
+
   .circularSlider
   {    
     width: 100%;
