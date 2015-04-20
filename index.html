@@ -25,6 +25,12 @@
 
 		<div id="sliderWrapper" class="circularSlider"></div>
 
+		<br />
+		<br />
+
+		<div>
+			<h1>Test #2 instance</h1>
+		</div>
 		<div id="sliderWrapper2" class="circularSlider"></div>
 
 
@@ -99,10 +105,10 @@
 				} ).createDial(
 				{
 					color 	 : '#faef35',
-					value 	 : 9,
-					minValue : 3,
-					maxValue : 10,
-					step 	 : 1,
+					value 	 : 8,
+					minValue : 4,
+					maxValue : 20,
+					step 	 : 2,
 					radius 	 : 300,
 					labelText : 'Limone'
 				} ).create();
@@ -110,7 +116,7 @@
 				
 
 				/* Test second instance */
-				var objSlider2 = new sl.CircularSlider( document.getElementById( 'sliderWrapper2' ), { width: 200, height: 200 } );
+				var objSlider2 = new sl.CircularSlider( document.getElementById( 'sliderWrapper2' ), { width: 600, height: 600 } );
 
 		    	objSlider2.createDial(
 				{
@@ -120,9 +126,39 @@
 					maxValue : 2000,
 					step 	 : 15,
 					radius 	 : 60,
-					labelText : 'LoremIpsum',
+					labelText : 'Lorem ipsum',
 					labelPrefix : '€ ',
 					labelSuffix : '',
+					labelFormat : function ( value )
+					{
+						return '€ ' + value.format( 2, 3, '.', ',' );
+					}
+				} ).createDial(
+				{
+					color 	 : '#000',
+					value 	 : 1000,
+					minValue : 0,
+					maxValue : 10000,
+					step 	 : 1000,
+					radius 	 : 120,
+					labelText : 'Dolor sit',
+					labelPrefix : '',
+					labelSuffix : ' €',
+					labelFormat : function ( value )
+					{
+						return '€ ' + value.format( 2, 3, '.', ',' );
+					}
+				} ).createDial(
+				{
+					color 	 : '#FF0000',
+					value 	 : 40,
+					minValue : 0,
+					maxValue : 100,
+					step 	 : 20,
+					radius 	 : 180,
+					labelText : 'amed',
+					labelPrefix : '',
+					labelSuffix : ' €',
 					labelFormat : function ( value )
 					{
 						return '€ ' + value.format( 2, 3, '.', ',' );

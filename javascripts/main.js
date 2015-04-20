@@ -234,7 +234,7 @@
 			
 			this.button.setAttribute( 'cx', objButtonPosition.cx );
 			this.button.setAttribute( 'cy', objButtonPosition.cy );
-			this.button.setAttribute( 'r', 20 );
+			this.button.setAttribute( 'r', 25 );
 
 			this.button.setAttribute( 'fill', 'url(#buttonGradient)' );
 			this.button.setAttribute( 'stroke', '#a4a1a1' );
